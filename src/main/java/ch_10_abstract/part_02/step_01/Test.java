@@ -1,4 +1,4 @@
-package ch_10_abstract.part_02;
+package ch_10_abstract.part_02.step_01;
 
 public class Test {
     public static void main(String[] args) {

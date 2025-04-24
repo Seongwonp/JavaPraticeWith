@@ -1,4 +1,4 @@
-package ch_10_abstract.step_01;
+package ch_10_abstract.part_02.step_02;
 
 abstract public class Animal {
     private String name;

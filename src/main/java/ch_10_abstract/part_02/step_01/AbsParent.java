@@ -1,4 +1,4 @@
-package ch_10_abstract.part_02;
+package ch_10_abstract.part_02.step_01;
 
 abstract public class AbsParent {
     protected String name = "AbsParent";
