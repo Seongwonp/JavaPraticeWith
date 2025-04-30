@@ -1,14 +1,15 @@
 package ch_30_database.part_01;
 
 import lombok.extern.log4j.Log4j2;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 @Log4j2
 public class DB {
     // 사용할 객체를 위한 참조변수 선언. 클래스 내의 여러 메서드에서 사용해야 되서 인스턴스 변수로 선언.
     protected Connection connection = null;
+    protected PreparedStatement prepareStatement = null;
+    protected ResultSet resultSet = null;
 
     public void connectDB() {
         final String driver = "org.mariadb.jdbc.Driver";
@@ -37,6 +38,11 @@ public class DB {
 
     public void closeDB(){
         try {
+            if (resultSet != null && prepareStatement != null) {
+                resultSet.close();
+                prepareStatement.close();
+            }
+
             if(connection != null && !connection.isClosed()) {
                 connection.close();
                 log.info("DB connection closed...");
