@@ -2,6 +2,7 @@ package ch_30_database.part_01;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 @Log4j2
@@ -31,6 +32,14 @@ public class DBInsert extends DB {
         do{
             System.out.print("신규 회원의 아이디를 입력하세요(영어나 숫자, 이전 데이터에서 사용한 값은 안됨): ");
             user.setUserId(scanner.nextLine());
+
+            //아이디 중복 확인
+            if(selectDuplicateId(user.getUserId())){
+                isFlag = true;
+                log.info("UserId already exists:( Please try another ID!!");
+                continue;
+            }
+
             System.out.print("신규 회원의 이름을 입력하세요: ");
             user.setName(scanner.nextLine());
             System.out.print("신규 회원의 나이를 입력하세요(숫자만): ");
@@ -76,4 +85,24 @@ public class DBInsert extends DB {
 
         return row == 1;
     }
+
+    //아이디 중복 확인
+    protected boolean selectDuplicateId(String userId){
+        String sql = "SELECT COUNT(*) AS result FROM tUser WHERE userId = ?";
+        boolean flag = false;
+        try{
+            prepareStatement = connection.prepareStatement(sql);
+            prepareStatement.setString(1, userId);
+
+            resultSet = prepareStatement.executeQuery();
+            resultSet.next();
+            flag = resultSet.getInt("result") != 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
 }

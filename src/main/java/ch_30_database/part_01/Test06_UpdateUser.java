@@ -1,11 +1,10 @@
 package ch_30_database.part_01;
 
-public class Test05_selectUser {
+public class Test06_UpdateUser {
     public static void main(String[] args) {
-        DBSelect db = new DBSelect();
+        DBUpdate db = new DBUpdate();
         db.connectDB();
-        db.printUsers();
-        db.printSearchUser();
+        db.modifyUser();
         db.closeDB();
     }
 }

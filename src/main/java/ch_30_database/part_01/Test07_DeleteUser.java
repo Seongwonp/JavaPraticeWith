@@ -1,11 +1,10 @@
 package ch_30_database.part_01;
 
-public class Test05_selectUser {
+public class Test07_DeleteUser {
     public static void main(String[] args) {
-        DBSelect db = new DBSelect();
+        DBDelete db = new DBDelete();
         db.connectDB();
-        db.printUsers();
-        db.printSearchUser();
+        db.removeUser();
         db.closeDB();
     }
 }
