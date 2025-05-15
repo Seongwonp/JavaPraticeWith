@@ -2,7 +2,6 @@ package ch_30_database.part_01;
 
 import lombok.extern.log4j.Log4j2;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 @Log4j2

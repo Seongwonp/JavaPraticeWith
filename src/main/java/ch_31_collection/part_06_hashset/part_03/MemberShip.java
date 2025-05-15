@@ -2,8 +2,6 @@ package ch_31_collection.part_06_hashset.part_03;
 
 import lombok.*;
 
-import java.util.Objects;
-
 @Data
 @AllArgsConstructor
 public class MemberShip {
