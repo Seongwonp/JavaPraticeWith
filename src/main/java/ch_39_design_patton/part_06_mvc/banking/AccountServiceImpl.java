@@ -6,7 +6,6 @@ import java.util.*;
 
 @Log4j2
 public class AccountServiceImpl implements AccountService {
-    Scanner scanner = new Scanner(System.in);
     AccountDAO accountDAO = new AccountDAOImpl();
 
     //계좌 생성
