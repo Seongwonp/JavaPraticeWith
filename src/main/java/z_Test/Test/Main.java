@@ -3,8 +3,8 @@ package z_Test.Test;
 import java.util.*;
 
 public class Main {
-    private final Scanner scanner = new Scanner(System.in);
-    private final List<BankAccount> accounts = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final List<BankAccount> accounts = new ArrayList<>();
 
     private void createAccount() {
         System.out.println("--------------");
