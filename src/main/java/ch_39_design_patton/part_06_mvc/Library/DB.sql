@@ -1,0 +1,7 @@
+CREATE TABLE book
+(
+    bookId INT AUTO_INCREMENT PRIMARY KEY ,
+    title  VARCHAR(100) NOT NULL ,
+    author VARCHAR(30) NOT NULL,
+    rented TINYINT(1) DEFAULT 0
+);
